@@ -1,4 +1,5 @@
 import { IGeneral } from "./general"
+// use
 
 export interface IBoard extends IGeneral {
 	ownerId: IGeneral['id'],

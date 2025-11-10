@@ -1,0 +1,1 @@
+export { registerWithJWT } from './registerWithJWT'

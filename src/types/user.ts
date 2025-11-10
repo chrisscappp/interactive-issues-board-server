@@ -7,6 +7,7 @@ export interface IUser extends IGeneral {
 	avatar?: string,
 	login?: string,
 	email: string,
+	password?: string,
 	roles: UserRoleType[]
 }
 

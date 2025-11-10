@@ -1,0 +1,1 @@
+export { authWithJWT } from './authWithJWT'

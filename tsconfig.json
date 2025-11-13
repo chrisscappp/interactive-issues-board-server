@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "ignoreDeprecations": "6.0",
     "target": "es2020",
     "module": "nodenext",
     "outDir": "./dist",
@@ -9,6 +10,7 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "isolatedModules": true,
+    "baseUrl": ".",
     "paths": {
       "@/*": [
         "./src/*"

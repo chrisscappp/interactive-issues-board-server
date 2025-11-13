@@ -32,7 +32,7 @@ export const registerWithJWT = async (req: Request<{}, {}, RegisterWithJWTReques
 			password,
 			surname,
 			login
-		} = req.body
+		} = req.body		
 
 		const users = await getCollectionItems('users') as IUser[]
 		const existingUser = users.find(user => user.email === email || user.login === login)

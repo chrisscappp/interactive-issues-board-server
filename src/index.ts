@@ -1,5 +1,6 @@
-import express, { Express, Request, Response } from "express"
+import express, { Express } from "express"
 import dotenv from "dotenv"
+import cors from "cors"
 import { authWithJWT } from "@/routes/authWithJWT"
 import { registerWithJWT } from "@/routes/registerWithJWT"
 import { refreshJWT } from "@/routes/refreshJWT"
@@ -9,6 +10,12 @@ dotenv.config()
 
 const app: Express = express()
 const port = process.env.SERVER_PORT || 8085
+
+app.use(cors({
+	origin: "*"
+})) // временная мера
+
+app.use(express.json())
 
 // JWT
 app.route(RouteName.LOGIN).post(authWithJWT)

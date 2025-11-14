@@ -3,13 +3,13 @@ import bcrypt from 'bcryptjs'
 import dotenv from 'dotenv'
 import { Request, Response } from "express"
 import { generateTokens } from '@/utils/lib/generateTokens'
-import { IUser } from "@/types/user"
+import { IUser, UserWithoutPasswordType } from "@/types/user"
 import { RouteMessage } from "@/utils/consts/routeMessage"
 import { generateUniqueId } from "@/utils/lib/generateUniqueId"
 
 dotenv.config()
 
-interface RegisterWithJWTRequest {
+interface RegisterWithJWTRequestBody {
 	name: string,
 	surname: string,
 	password: string,
@@ -21,10 +21,10 @@ interface RegisterWithJWTResponse {
 	message?: RouteMessage,
 	accessToken?: string,
 	refreshToken?: string,
-	user?: Omit<IUser, 'password'>
+	user?: UserWithoutPasswordType
 }
 
-export const registerWithJWT = async (req: Request<{}, {}, RegisterWithJWTRequest>, res: Response<RegisterWithJWTResponse>) => {
+export const registerWithJWT = async (req: Request<{}, {}, RegisterWithJWTRequestBody>, res: Response<RegisterWithJWTResponse>) => {
 	try {
 		const {
 			email,

@@ -9,5 +9,11 @@ export const enum RouteMessage {
 	EXISTING_USER='existing_user',
 	USER_CREATED='user_created',
 	REFRESH_TOKEN_REQUIRED='refresh_token_required',
-	INVALID_REFRESH_TOKEN='invalid_refresh_token'
+	INVALID_REFRESH_TOKEN='invalid_refresh_token',
+
+	// USER
+	GET_USER='get_user',
+	GET_USERS='get_users',
+	USER_NOT_FOUND='user_not_found',
+	USERS_NOT_FOUND='users_not_found'
 }

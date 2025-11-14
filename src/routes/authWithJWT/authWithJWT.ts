@@ -3,12 +3,12 @@ import bcrypt from 'bcryptjs'
 import dotenv from 'dotenv'
 import { generateTokens } from '@/utils/lib/generateTokens'
 import { Request, Response } from "express"
-import { IUser } from "@/types/user"
+import { IUser, UserWithoutPasswordType } from "@/types/user"
 import { RouteMessage } from "@/utils/consts/routeMessage"
 
 dotenv.config()
 
-interface AuthWithJWTRequest {
+interface AuthWithJWTRequestBody {
 	login: string,
 	password: string
 }
@@ -17,10 +17,10 @@ interface AuthWithJWTResponse {
 	message?: RouteMessage,
 	accessToken?: string,
 	refreshToken?: string,
-	user?: Omit<IUser, 'password'>
+	user?: UserWithoutPasswordType
 }
 
-export const authWithJWT = async (req: Request<{}, {}, AuthWithJWTRequest>, res: Response<AuthWithJWTResponse>) => {
+export const authWithJWT = async (req: Request<{}, {}, AuthWithJWTRequestBody>, res: Response<AuthWithJWTResponse>) => {
 	try {
 		const { login, password } = req.body
 		

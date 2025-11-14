@@ -2,20 +2,20 @@ import jwt from 'jsonwebtoken'
 import dotenv from 'dotenv'
 import { Request, Response } from "express"
 import { RouteMessage } from "@/utils/consts/routeMessage"
-import { IUser } from "@/types/user"
 import { isUser } from "@/utils/typeguards/isUser"
 
 dotenv.config()
 
-interface RefreshJWTRequest {
+interface RefreshJWTRequestBody {
 	refreshToken: string
 }
 
 interface RefreshJWTResponse {
-	message?: RouteMessage
+	message?: RouteMessage,
+	accessToken?: string
 }
 
-export const refreshJWT = async (req: Request<{}, {}, RefreshJWTRequest>, res: Response) => {
+export const refreshJWT = async (req: Request<{}, {}, RefreshJWTRequestBody>, res: Response<RefreshJWTResponse>) => {
 	let refreshToken = req.body.refreshToken
 
 	// Удаляем кавычки если они есть
@@ -40,6 +40,7 @@ export const refreshJWT = async (req: Request<{}, {}, RefreshJWTRequest>, res: R
 			)
 
 			res.json({
+				message: RouteMessage.AUTH_SUCCESS,
 				accessToken: newAccessToken
 			})	
 		}

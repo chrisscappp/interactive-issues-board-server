@@ -5,6 +5,7 @@ import { authWithJWT } from "@/routes/authWithJWT"
 import { registerWithJWT } from "@/routes/registerWithJWT"
 import { refreshJWT } from "@/routes/refreshJWT"
 import { RouteName } from "@/utils/consts/routes"
+import { getUsers } from "@/routes/getUsers"
 
 dotenv.config()
 
@@ -21,5 +22,8 @@ app.use(express.json())
 app.route(RouteName.LOGIN).post(authWithJWT)
 app.route(RouteName.REGISTER).post(registerWithJWT)
 app.route(RouteName.REFRESH_TOKEN).post(refreshJWT)
+
+// USER
+app.route(`${RouteName.GET_USERS}/:userId`).get(getUsers)
 
 app.listen(port, () => { console.log(`Server is running in PORT = ${port}`) })

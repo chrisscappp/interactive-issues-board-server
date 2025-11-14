@@ -17,3 +17,5 @@ export interface IUserProfile {
 	boardCount: number,
 	totalIssuePointsCount: number
 }
+
+export type UserWithoutPasswordType = Omit<IUser, 'password'>

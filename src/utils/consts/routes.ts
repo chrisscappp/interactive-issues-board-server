@@ -5,5 +5,9 @@ export const enum RouteName {
 	REFRESH_TOKEN='/refreshToken',
 
 	// USER
-	GET_USERS='/getUsers'
+	GET_USERS='/getUsers',
+
+	// FORGET_PASSWORD
+	FORGET_PASSWORD_START='/forgetPassword/start',
+	FORGET_PASSWORD_CHANGE='/forgetPassword/change'
 }

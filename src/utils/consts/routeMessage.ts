@@ -15,5 +15,13 @@ export const enum RouteMessage {
 	GET_USER='get_user',
 	GET_USERS='get_users',
 	USER_NOT_FOUND='user_not_found',
-	USERS_NOT_FOUND='users_not_found'
+	USERS_NOT_FOUND='users_not_found',
+
+	// NODEMAILER
+	MESSAGE_CREATE_ERROR='message_create_error',
+	MESSAGE_CREATE_SUCCESS='message_create_success',
+
+	// FORGET PASSWORD
+	FORGET_PASSWORD_START='forget_password_start',
+	FORGET_PASSWORD_CHANGE='forget_password_change'
 }

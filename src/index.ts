@@ -6,6 +6,7 @@ import { registerWithJWT } from "@/routes/registerWithJWT"
 import { refreshJWT } from "@/routes/refreshJWT"
 import { RouteName } from "@/utils/consts/routes"
 import { getUsers } from "@/routes/getUsers"
+import { forgetPasswordChange, forgetPasswordStart } from "@/routes/forgetPassword"
 
 dotenv.config()
 
@@ -25,5 +26,9 @@ app.route(RouteName.REFRESH_TOKEN).post(refreshJWT)
 
 // USER
 app.route(`${RouteName.GET_USERS}/:userId`).get(getUsers)
+
+// FORGET PASSWORD
+app.route(RouteName.FORGET_PASSWORD_START).post(forgetPasswordStart)
+app.route(RouteName.FORGET_PASSWORD_CHANGE).post(forgetPasswordChange)
 
 app.listen(port, () => { console.log(`Server is running in PORT = ${port}`) })

@@ -2,7 +2,6 @@ import jwt from 'jsonwebtoken'
 import dotenv from 'dotenv'
 import { Request, Response, NextFunction } from "express"
 import { RouteMessage } from "@/utils/consts/routeMessage"
-import { IUser } from "@/types/user"
 
 dotenv.config()
 

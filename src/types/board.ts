@@ -1,18 +1,16 @@
 import { IGeneral } from "./general"
-// use
-
 export interface IBoard extends IGeneral {
 	ownerId: IGeneral['id'],
-	participantsIds: Array<IGeneral['id']>,
+	participantsIds?: Array<IGeneral['id']>,
 	name: string,
-	description: string,
-	columnsIds: Array<IGeneral['id']>
+	description?: string,
+	columnsIds?: Array<IGeneral['id']>
 }
 
 export interface IBoardColumn extends IGeneral {
 	name: string,
-	description: string,
-	issueIds: Array<IGeneral['id']>
+	description?: string,
+	issueIds?: Array<IGeneral['id']>
 }
 
 export interface IBoardIssue extends IGeneral {
